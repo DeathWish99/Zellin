@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 1157561191}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,8 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0.4
   attackPos: {fileID: 1767647206}
-  attackRangeX: 1.3
-  attackRangeY: 0.77
+  attackRange: 1.01
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
@@ -408,8 +407,6 @@ MonoBehaviour:
   detectPlayer: {fileID: 580037474}
   health: 2
   speed: 1
-  detectRangeX: 17.25
-  detectRangeY: 1.05
 --- !u!61 &1224025203
 BoxCollider2D:
   m_ObjectHideFlags: 0
