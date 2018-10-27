@@ -9,8 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public float startTimeBtwAttack;
 
     public Transform attackPos;
-    public float attackRangeX;
-    public float attackRangeY;
+    public float attackRange;
     public LayerMask whatIsEnemies;
     public int damage;
 
@@ -22,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
@@ -40,6 +39,6 @@ public class PlayerAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(attackPos.position, new Vector3(attackRangeX, attackRangeY, 1));
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }
