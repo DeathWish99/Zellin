@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour {
 
         if (translation < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-22, 21, 1);
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(22, 21, 1);
         }
 
         //if (translation != 0)
