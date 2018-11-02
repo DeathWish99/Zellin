@@ -28,10 +28,16 @@ public class PlayerMovement : MonoBehaviour {
         if (translation < 0)
         {
             transform.localScale = new Vector3(-22, 21, 1);
+            GetComponent<Animator>().SetBool("right", true);
+        }
+        else if(translation > 0)
+        {
+            transform.localScale = new Vector3(22, 21, 1);
+            GetComponent<Animator>().SetBool("right", true);
         }
         else
         {
-            transform.localScale = new Vector3(22, 21, 1);
+            GetComponent<Animator>().SetBool("right", false);
         }
 
         //if (translation != 0)
