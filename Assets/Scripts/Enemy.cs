@@ -4,62 +4,37 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Transform detectPlayer;
     public int health;
     public float speed;
-    [SerializeField]private int rayRange = 20;
-    public GameController gc;
 
-    private bool hasFoundPlayer = false;
-    private float dirTimer;
-    private float dirTime;
-    private int targetLayer;
     private Vector2 currDir;
     private RaycastHit2D hit;
     // Use this for initialization
     void Start()
     {
-        dirTime = 1.0f;
-        dirTimer = dirTime;
         currDir = Vector2.left;
-        targetLayer = LayerMask.GetMask("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!hasFoundPlayer)
-        {
-            if (dirTimer > 0)
-            {
-                dirTimer -= Time.deltaTime;
-            }
-            else
-            {
-                currDir *= -1;
-                dirTimer = dirTime;
-                Debug.Log(currDir);
-            }
-        }
-        
+        hit = Physics2D.Raycast(transform.position, currDir);
 
-        hit = Physics2D.Raycast(transform.position, currDir, rayRange, targetLayer);
-        
 
         if (hit)
         {
-            hasFoundPlayer = true;
+            Debug.Log("Hit");
             if (hit.transform.gameObject.tag == "Player")
             {
-                transform.Translate(currDir * speed * Time.deltaTime);
+                transform.Translate(Vector2.left * speed * Time.deltaTime);
+                Debug.Log("HIT");
             }
-        }
-        else
-        {
-            hasFoundPlayer = false;
         }
         if (health <= 0)
         {
             Destroy(gameObject);
+<<<<<<< HEAD
             gc.AddScore(100);
         }
     }
@@ -81,6 +56,8 @@ public class Enemy : MonoBehaviour
             rb.AddForce(new Vector2(currDir.x * 50, 0));
 >>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
             Debug.Log("Collide");
+=======
+>>>>>>> parent of ef52532... Update
         }
     }
 
