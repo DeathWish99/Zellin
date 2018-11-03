@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     public Text scoreText;
+    public Text healthText;
+    public int playerHealth = 5;
 
     private int score;
 
@@ -13,6 +15,7 @@ public class GameController : MonoBehaviour {
 	void Start () {
         score = 0;
         UpdateScore();
+        UpdateHealth();
     }
 
     // Update is called once per frame
@@ -21,7 +24,18 @@ public class GameController : MonoBehaviour {
         UpdateScore();
     }
 
+    public void TakeDamage(int damageValue)
+    {
+        playerHealth -= damageValue;
+        UpdateHealth();
+    }
+
     void UpdateScore () {
         scoreText.text = "Score: " + score;
 	}
+
+    void UpdateHealth ()
+    {
+        healthText.text = "Health: " + playerHealth;
+    }
 }
