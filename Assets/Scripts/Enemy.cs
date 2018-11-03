@@ -65,13 +65,21 @@ public class Enemy : MonoBehaviour
     }
 
 
+<<<<<<< HEAD
     private void OnCollisionEnter2D(Collision2D collision)
+=======
+    private void OnCollisionStay2D(Collision2D collision)
+>>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
     {
         if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
             rb.AddForce(new Vector2(currDir.x * 450, 0));
             gc.TakeDamage(1);
+=======
+            rb.AddForce(new Vector2(currDir.x * 50, 0));
+>>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
             Debug.Log("Collide");
         }
     }
