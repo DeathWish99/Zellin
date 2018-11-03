@@ -29,25 +29,14 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.localScale = new Vector3(-22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
-<<<<<<< HEAD
-=======
         }
         else if(translation > 0)
         {
-            transform.localScale = new Vector3(22, 21, 1);
-            GetComponent<Animator>().SetBool("right", true);
->>>>>>> parent of 515238d... Revert "Merge branch 'master' of https://github.com/DeathWish99/Zellin"
-        }
-        else if(translation > 0)
-        {
-<<<<<<< HEAD
             transform.localScale = new Vector3(22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
         }
         else
         {
-=======
->>>>>>> parent of 515238d... Revert "Merge branch 'master' of https://github.com/DeathWish99/Zellin"
             GetComponent<Animator>().SetBool("right", false);
         }
 
