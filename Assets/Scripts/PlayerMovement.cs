@@ -31,7 +31,11 @@ public class PlayerMovement : MonoBehaviour {
             GetComponent<Animator>().SetBool("right", true);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         else if(translation > 0)
+=======
+        else
+>>>>>>> parent of ef52532... Update
 =======
         else
 >>>>>>> parent of ef52532... Update

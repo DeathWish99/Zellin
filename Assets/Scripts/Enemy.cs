@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             gc.AddScore(100);
         }
     }
@@ -57,6 +58,8 @@ public class Enemy : MonoBehaviour
             rb.AddForce(new Vector2(currDir.x * 50, 0));
 >>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
             Debug.Log("Collide");
+=======
+>>>>>>> parent of ef52532... Update
 =======
 >>>>>>> parent of ef52532... Update
 =======
