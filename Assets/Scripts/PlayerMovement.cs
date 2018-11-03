@@ -30,7 +30,11 @@ public class PlayerMovement : MonoBehaviour {
             transform.localScale = new Vector3(-22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
         }
+<<<<<<< HEAD
         else if(translation > 0)
+=======
+        else
+>>>>>>> parent of ef52532... Update
         {
             transform.localScale = new Vector3(22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
