@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     public Text scoreText;
     public Text healthText;
@@ -11,28 +12,30 @@ public class GameController : MonoBehaviour {
 
     private int score;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         score = 0;
         UpdateScore();
         UpdateHealth();
     }
-    
-    public void AddScore(int newScoreValue) {
+
+    public void AddScore(int newScoreValue)
+    {
         score += newScoreValue;
         UpdateScore();
+    }
+    void UpdateScore()
+    {
+        scoreText.text = "Score: " + score;
     }
     public void TakeDamage(int damageValue)
     {
         playerHealth -= damageValue;
         UpdateHealth();
     }
-
-    void UpdateScore () {
-        scoreText.text = "Score: " + score;
-	}
-
-    void UpdateHealth ()
+    void UpdateHealth()
     {
         healthText.text = "Health: " + playerHealth;
     }
+}

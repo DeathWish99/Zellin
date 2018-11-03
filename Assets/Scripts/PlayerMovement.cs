@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.localScale = new Vector3(-22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
+
         }
         else if(translation > 0)
         {
