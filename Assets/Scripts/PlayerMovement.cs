@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 10.0f;
     public float jumpForce = 1.0f;
     public float doubleJumpCooldown = 0.1f;
-    public GameController gc;
     private float doubleJumpCounter = 0.0f;
     private bool isOnGround = true;
     private bool isDoubleJumping = false;
@@ -28,11 +27,17 @@ public class PlayerMovement : MonoBehaviour {
 
         if (translation < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-22, 21, 1);
+            GetComponent<Animator>().SetBool("right", true);
         }
-        else if (translation > 0)
+        else if(translation > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(22, 21, 1);
+            GetComponent<Animator>().SetBool("right", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("right", false);
         }
 
         //if (translation != 0)
@@ -59,11 +64,6 @@ public class PlayerMovement : MonoBehaviour {
                     isDoubleJumping = true;
                 }
             }
-        }
-
-        if(gc.playerHealth <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 
