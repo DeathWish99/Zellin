@@ -65,12 +65,13 @@ public class Enemy : MonoBehaviour
     }
 
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            rb.AddForce(new Vector2(currDir.x * 50, 0));
+            rb.AddForce(new Vector2(currDir.x * 2050, 0));
+            gc.TookDamage(1);
             Debug.Log("Collide");
         }
     }
