@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform detectPlayer;
     public int health;
     public float speed;
+    GameController gc;
 
     private Vector2 currDir;
     private RaycastHit2D hit;
@@ -34,36 +34,17 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             gc.AddScore(100);
         }
     }
-
-
-<<<<<<< HEAD
-    private void OnCollisionEnter2D(Collision2D collision)
-=======
-    private void OnCollisionStay2D(Collision2D collision)
->>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
-    {
+    private void OnCollisionStay2D(Collision2D collision) { 
         if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
             rb.AddForce(new Vector2(currDir.x * 450, 0));
             gc.TakeDamage(1);
-=======
             rb.AddForce(new Vector2(currDir.x * 50, 0));
->>>>>>> 6fd58527ca60b3d8e376506fb461fecb2c2dd0f1
             Debug.Log("Collide");
-=======
->>>>>>> parent of ef52532... Update
-=======
->>>>>>> parent of ef52532... Update
-=======
->>>>>>> parent of ef52532... Update
         }
     }
 
