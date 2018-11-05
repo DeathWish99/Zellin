@@ -35,13 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(translation, 0, 0);
         
-        if(transform.position.x > -46.9f)
+        if(transform.position.x > 10.8f)
         {
             cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, -3);
         }
         else
         {
-            cam.transform.position = new Vector3(-47.35748f, cam.transform.position.y, -3);
+            cam.transform.position = new Vector3(10.8f, cam.transform.position.y, -3);
         }
 
         if (translation < 0)
