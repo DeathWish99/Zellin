@@ -8,7 +8,8 @@ public class GameController : MonoBehaviour
 
     public Text scoreText;
     public Text healthText;
-    public int playerHealth = 5;
+    public int playerHealth = 100;
+    public Image healthImage;
 
     private int score;
 
@@ -32,6 +33,8 @@ public class GameController : MonoBehaviour
     public void TookDamage(int damageValue)
     {
         playerHealth -= damageValue;
+        healthImage.rectTransform.sizeDelta = new Vector2(playerHealth * 4, 123.2f);
+        healthImage.transform.position = new Vector2(healthImage.transform.position.x - 40, healthImage.transform.position.y);
         UpdateHealth();
     }
     void UpdateHealth()

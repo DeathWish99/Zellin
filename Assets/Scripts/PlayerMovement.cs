@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10.0f;
     public float jumpForce = 1.0f;
     public float doubleJumpCooldown = 0.1f;
+    public int indexScene = 3;
+    public Camera cam;
+    public GameController gc;
+
     private float doubleJumpCounter = 0.0f;
     private bool isOnGround = true;
     private bool isDoubleJumping = false;
-
-    public Camera cam;
-    public GameController gc;
+    
     //private Animator anim;
     private Rigidbody2D rb;
 
@@ -89,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         if (gc.playerHealth <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(5);
         }
     }
 
