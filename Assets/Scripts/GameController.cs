@@ -38,4 +38,5 @@ public class GameController : MonoBehaviour
     {
         healthText.text = "Health: " + playerHealth;
     }
+    
 }

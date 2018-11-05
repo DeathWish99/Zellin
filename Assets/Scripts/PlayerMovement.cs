@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnGround = true;
     private bool isDoubleJumping = false;
 
+    public Camera cam;
     public GameController gc;
     //private Animator anim;
     private Rigidbody2D rb;
@@ -23,21 +24,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void FixedUpdate()
+    {
+        
+    }
+
     void Update()
     {
         float translation = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         transform.Translate(translation, 0, 0);
+        
+        if(transform.position.x > -46.9f)
+        {
+            cam.transform.position = new Vector3(transform.position.x, cam.transform.position.y, -3);
+        }
+        else
+        {
+            cam.transform.position = new Vector3(-47.35748f, cam.transform.position.y, -3);
+        }
 
         if (translation < 0)
         {
-            transform.localScale = new Vector3(-22, 21, 1);
+            transform.localScale = new Vector3(-12.21469f, 11.1661f, 1);
             GetComponent<Animator>().SetBool("right", true);
 
         }
         else if (translation > 0)
         {
-            transform.localScale = new Vector3(22, 21, 1);
+            transform.localScale = new Vector3(12.21469f, 11.1661f, 1);
             GetComponent<Animator>().SetBool("right", true);
         }
         else
