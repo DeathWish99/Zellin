@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 10.0f;
+    public float speed = 100.0f;
     public float jumpForce = 1.0f;
     public float doubleJumpCooldown = 0.1f;
     public int indexScene = 3;
@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         float translation = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         transform.Translate(translation, 0, 0);
+
+        //rb.velocity = new Vector2(translation, 0);
         
         if(transform.position.x > 10.8f)
         {
@@ -76,14 +78,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnGround)
             {
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                isDoubleJumping = false;
+                rb.velocity += jumpForce * Vector2.up;
                 isOnGround = false;
             }
             else
             {
                 if (isDoubleJumping == false)
                 {
-                    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    rb.velocity += jumpForce * Vector2.up;
                     isDoubleJumping = true;
                 }
             }
