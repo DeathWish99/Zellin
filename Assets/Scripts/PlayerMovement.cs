@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
     public float speed = 10.0f;
     public float jumpForce = 1.0f;
@@ -10,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     private float doubleJumpCounter = 0.0f;
     private bool isOnGround = true;
     private bool isDoubleJumping = false;
+
+    public GameController gc;
     //private Animator anim;
     private Rigidbody2D rb;
 
@@ -20,7 +23,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         float translation = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
 
         transform.Translate(translation, 0, 0);
@@ -31,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
             GetComponent<Animator>().SetBool("right", true);
 
         }
-        else if(translation > 0)
+        else if (translation > 0)
         {
             transform.localScale = new Vector3(22, 21, 1);
             GetComponent<Animator>().SetBool("right", true);
@@ -65,6 +69,11 @@ public class PlayerMovement : MonoBehaviour {
                     isDoubleJumping = true;
                 }
             }
+        }
+
+        if (gc.playerHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 
