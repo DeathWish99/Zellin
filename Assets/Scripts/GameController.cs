@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
-    public void TakeDamage(int damageValue)
+    public void TookDamage(int damageValue)
     {
         playerHealth -= damageValue;
         UpdateHealth();

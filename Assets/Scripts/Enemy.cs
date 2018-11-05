@@ -6,30 +6,56 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     public float speed;
-    GameController gc;
+    [SerializeField]private int rayRange = 20;
+    public GameController gc;
 
+    private bool hasFoundPlayer = false;
+    private float dirTimer;
+    private float dirTime;
+    private int targetLayer;
     private Vector2 currDir;
     private RaycastHit2D hit;
     // Use this for initialization
     void Start()
     {
+        dirTime = 1.0f;
+        dirTimer = dirTime;
         currDir = Vector2.left;
+        targetLayer = LayerMask.GetMask("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        hit = Physics2D.Raycast(transform.position, currDir);
+        if (!hasFoundPlayer)
+        {
+            if (dirTimer > 0)
+            {
+                dirTimer -= Time.deltaTime;
+            }
+            else
+            {
+                currDir *= -1;
+                dirTimer = dirTime;
+                Debug.Log(currDir);
+            }
+        }
+        
 
+        hit = Physics2D.Raycast(transform.position, currDir, rayRange, targetLayer);
+        
 
         if (hit)
         {
-            Debug.Log("Hit");
+            hasFoundPlayer = true;
             if (hit.transform.gameObject.tag == "Player")
             {
-                transform.Translate(Vector2.left * speed * Time.deltaTime);
-                Debug.Log("HIT");
+                transform.Translate(currDir * speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            hasFoundPlayer = false;
         }
         if (health <= 0)
         {
@@ -37,25 +63,15 @@ public class Enemy : MonoBehaviour
             gc.AddScore(100);
         }
     }
-<<<<<<< HEAD
-        
-    private void OnCollisionStay2D(Collision2D collision)
-=======
 
 
     private void OnCollisionEnter2D(Collision2D collision)
->>>>>>> 73d6e0de7da263f773a359922fe9de77df9a2f0f
     {
         if(collision.gameObject.tag == "Player")
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-<<<<<<< HEAD
-            rb.AddForce(new Vector2(currDir.x * 450, 0));
-            gc.TakeDamage(1);
-=======
             rb.AddForce(new Vector2(currDir.x * 2050, 0));
             gc.TookDamage(1);
->>>>>>> 73d6e0de7da263f773a359922fe9de77df9a2f0f
             Debug.Log("Collide");
         }
     }
