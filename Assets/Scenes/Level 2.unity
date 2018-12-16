@@ -5396,9 +5396,8 @@ GameObject:
   - component: {fileID: 2026376528}
   - component: {fileID: 2026376527}
   - component: {fileID: 2026376526}
-  - component: {fileID: 2026376525}
   - component: {fileID: 2026376524}
-  - component: {fileID: 2026376523}
+  - component: {fileID: 2026376521}
   - component: {fileID: 2026376522}
   - component: {fileID: 2026376520}
   - component: {fileID: 2026376519}
@@ -5492,6 +5491,30 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2026376521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026376517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0912f639aa1dcbb4c99376efd474c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70
+  jumpForce: 40
+  doubleJumpCooldown: 0.5
+  indexScene: 6
+  cam: {fileID: 2101156307}
+  gc: {fileID: 1394469710}
+  startTimeBtwAttack: 0
+  attackPos: {fileID: 309198357}
+  attackRange: 13.7
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 1
 --- !u!50 &2026376522
 Rigidbody2D:
   serializedVersion: 4
@@ -5512,24 +5535,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2026376523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2026376517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51cdd71f3553047fe8f990c9d59acfbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0
-  attackPos: {fileID: 309198357}
-  attackRange: 13.7
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 1
 --- !u!61 &2026376524
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5555,23 +5560,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.09, y: 1.27}
   m_EdgeRadius: 0
---- !u!114 &2026376525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2026376517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02efed3b398624f99a07e40e735fc6a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 70
-  jumpForce: 40
-  doubleJumpCooldown: 0.5
-  indexScene: 6
-  cam: {fileID: 2101156307}
-  gc: {fileID: 1394469710}
 --- !u!95 &2026376526
 Animator:
   serializedVersion: 3
