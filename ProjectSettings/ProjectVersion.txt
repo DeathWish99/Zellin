@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 m_EditorVersion: 2018.2.11f1
 =======
@@ -32,3 +33,6 @@ m_StandardAssetsVersion: 0
 =======
 >>>>>>> parent of 515238d... Revert "Merge branch 'master' of https://github.com/DeathWish99/Zellin"
 >>>>>>> cf367a6fa0c1991dd05616dff9b8973b9d3470d0
+=======
+m_EditorVersion: 2018.2.14f1
+>>>>>>> 73d6e0de7da263f773a359922fe9de77df9a2f0f

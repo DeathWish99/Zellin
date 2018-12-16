@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         playerHealth -= damageValue;
         healthImage.rectTransform.sizeDelta = new Vector2(playerHealth * 4, 123.2f);
-        healthImage.transform.position = new Vector2(healthImage.transform.position.x - 40, healthImage.transform.position.y);
+        healthImage.transform.position = new Vector2(healthImage.transform.position.x - 18, healthImage.transform.position.y);
         UpdateHealth();
     }
     void UpdateHealth()

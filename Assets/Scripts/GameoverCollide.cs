@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Gate : MonoBehaviour {
+public class GameoverCollide : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            LoadNextScene();
+            SceneManager.LoadScene(7);
         }
-    }
-
-    public void LoadNextScene()
-    {
-        int currScene = SceneManager.GetActiveScene().buildIndex;
-        LevelData.NextLevel();
-        SceneManager.LoadScene(currScene + 1);
     }
 }

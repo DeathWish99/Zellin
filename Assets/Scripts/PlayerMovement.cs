@@ -92,10 +92,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //Ganti Scene ke try again jika pergi ke alam baka
         if (gc.playerHealth <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(7);
         }
     }
 

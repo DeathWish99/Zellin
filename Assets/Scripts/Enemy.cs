@@ -70,9 +70,9 @@ public class Enemy : MonoBehaviour
         Debug.Log("Collide");
         if(collision.gameObject.tag == "Player")
         {
-            //  Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            // rb.AddForce(new Vector2(currDir.x * 2500, 0));
-            gc.TookDamage(20);
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            rb.AddForce(new Vector2(currDir.x * 1700, 0));
+            gc.TookDamage(10);
             Debug.Log("Collide");
         }
     }
