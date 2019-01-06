@@ -29,6 +29,13 @@ public class Player : MonoBehaviour {
     public int damage;
 
 
+    public float moveSpeed;
+    public bool facingRight;
+
+    public float jumpHeight;
+
+    public bool isGrounded;
+
     void Start () {
         // movement :
         rb = GetComponent<Rigidbody2D>();
@@ -70,6 +77,15 @@ public class Player : MonoBehaviour {
             GetComponent<Animator>().SetBool("right", false);
         }
 
+
+        //Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+       // transform.position += move * moveSpeed * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpHeight), ForceMode2D.Force);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isOnGround)
@@ -93,6 +109,11 @@ public class Player : MonoBehaviour {
             Destroy(gameObject);
             SceneManager.LoadScene(5);
         }
+
+
+            
+        
+
 
         //attack :
         if (timeBtwAttack <= 0)
@@ -137,4 +158,21 @@ public class Player : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
+
+
+    void OnTriggerEnter2D()
+    {
+        isGrounded = true;
+    }
+    void OnTriggerStay2D()
+    {
+        isGrounded = true;
+    }
+    void OnTriggerExit2D()
+    {
+        isGrounded = false;
+    }
+
+
+
 }
